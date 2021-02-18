@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <string>
 
 static int32_t buff[100] = {0};
 
@@ -23,6 +25,15 @@ int32_t sum_of_fibonacci(int32_t counter)
 
 int main (int argc, char *argv[])
 {
+    std::vector<std::string> cmdLineArgs(argv, argv + argc);
+    for (auto& arg : cmdLineArgs)
+    {
+	if (arg == "--help" || arg == "-h")
+	{
+	    std::cout << "This programm calculate sum of n elements of Fibonacci number. After programms run You have to enter how many first members of Fibonacci numbers must be summed." << std::endl;
+	    return 0;
+	}
+    }
     int32_t num = 0;
     std::cout << "Enter number of element of Fibonacci number" << std::endl;
     std::cin >> num;
