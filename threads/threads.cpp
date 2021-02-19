@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <filesystem>
+#include <thread>
 
 
 void get_file_names(std::string path)
@@ -11,12 +12,12 @@ void get_file_names(std::string path)
 }
 
 
-uint32_t get_file_amount(std::string path)
+void get_file_amount(std::string path)
 {
     uint32_t counter = 0;
     for (const auto & entry : std::filesystem::directory_iterator(path))
 	counter++;
-    return counter;
+    std::cout << counter << std::endl;
 }
 
 
@@ -36,10 +37,15 @@ int main (int argc, char *argv[])
 	    path_to_directory = arg;
 	}
     }
-    
-    get_file_names(path_to_directory);
-    std::cout << "Number of files = " << get_file_amount(path_to_directory) << std::endl;
 
+    std::thread thread1(get_file_names, path_to_directory);
+    //get_file_names(path_to_directory);
+
+    std::thread thread2(get_file_amount, path_to_directory);
+    //get_file_amount(path_to_directory);
+
+    thread1.join();
+    thread2.join();
 
     return 0;
 }
