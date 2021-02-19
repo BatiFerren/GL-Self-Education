@@ -37,6 +37,7 @@ public:
     void push(uint32_t element)
     {
 	if (top <= size_stack) {array[top++] = element;}
+	else {std::cout << "You reached the end of the stack. Resize your stack" << std::endl;}
     }
 
     uint32_t capacity()
@@ -47,6 +48,24 @@ public:
     uint32_t size()
     {
 	return size_stack;
+    }
+
+    void resize(uint32_t new_size_stack)
+    {
+	uint32_t *buff;
+	buff = new uint32_t[top];
+	for (uint32_t i = 0; i <= top; i++)
+	{
+	    buff[i] = array[i];
+	}
+	size_stack = new_size_stack;
+	delete[] array;
+	array = new uint32_t[size_stack];
+	for (uint32_t i = 0; i <= top; i++)
+	{
+	    array[i] = buff[i];
+	}
+	delete[] buff;
     }
 
 };
@@ -73,6 +92,10 @@ int main (int argc, char *argv[])
     std::cout << "Cap = " << cap << std::endl;
     uint32_t siz = mystack.size();
     std::cout << "Size = " << siz << std::endl;
+    mystack.resize(15);
+    uint32_t new_siz = mystack.size();
+    std::cout << "New_Size = " << new_siz << std::endl;
+    mystack.print_stack();
 
     return 0;
 }
