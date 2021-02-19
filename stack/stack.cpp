@@ -28,14 +28,20 @@ public:
 
     void print_stack()
     {
-	while (top > 0) {
-	    std::cout << array[--top] << std::endl;
+	uint32_t i = top;
+	while (i > 0) {
+	    std::cout << array[--i] << std::endl;
 	}
     }
 
     void push(uint32_t element)
     {
 	array[top++] = element;
+    }
+
+    uint32_t capacity()
+    {
+	return top;
     }
 
 };
@@ -58,6 +64,8 @@ int main (int argc, char *argv[])
     mystack.push(10);
     mystack.push(2);
     mystack.print_stack();
+    uint32_t cap = mystack.capacity();
+    std::cout << "Cap = " << cap << std::endl;
 
     return 0;
 }
