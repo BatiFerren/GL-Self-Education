@@ -26,6 +26,13 @@ public:
 	array = new uint32_t[size_stack];
     }
 
+    void print_stack()
+    {
+	while (top > 0) {
+	    std::cout << array[--top] << std::endl;
+	}
+    }
+
     void push(uint32_t element)
     {
 	array[top++] = element;
@@ -48,6 +55,9 @@ int main (int argc, char *argv[])
     MyStack mystack;
     mystack.create(10);
     mystack.push(5);
+    mystack.push(10);
+    mystack.push(2);
+    mystack.print_stack();
 
     return 0;
 }
