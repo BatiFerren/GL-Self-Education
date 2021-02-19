@@ -39,10 +39,8 @@ int main (int argc, char *argv[])
     }
 
     std::thread thread1(get_file_names, path_to_directory);
-    //get_file_names(path_to_directory);
 
     std::thread thread2(get_file_amount, path_to_directory);
-    //get_file_amount(path_to_directory);
 
     thread1.join();
     thread2.join();
