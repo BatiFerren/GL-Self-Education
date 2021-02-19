@@ -42,8 +42,8 @@ public:
 
     uint32_t pop()
     {
-	uint32_t index_of_top_element = top - 1;
-	return array[index_of_top_element];
+	//uint32_t index_of_top_element = top - 1;
+	return array[--top];
     }
 
     uint32_t capacity()
@@ -106,6 +106,11 @@ int main (int argc, char *argv[])
     std::cout << "New_Size = " << new_siz << std::endl;
     mystack.print_stack();
     std::cout << "Top element = " << mystack.pop() << std::endl;
+    uint32_t new_cap2 = mystack.capacity();
+    std::cout << "New_Cap2 = " << new_cap2 << std::endl;
+    uint32_t new_siz2 = mystack.size();
+    std::cout << "New_Size2 = " << new_siz2 << std::endl;
+    mystack.print_stack();
 
     return 0;
 }
