@@ -36,12 +36,17 @@ public:
 
     void push(uint32_t element)
     {
-	array[top++] = element;
+	if (top <= size_stack) {array[top++] = element;}
     }
 
     uint32_t capacity()
     {
 	return top;
+    }
+
+    uint32_t size()
+    {
+	return size_stack;
     }
 
 };
@@ -66,6 +71,8 @@ int main (int argc, char *argv[])
     mystack.print_stack();
     uint32_t cap = mystack.capacity();
     std::cout << "Cap = " << cap << std::endl;
+    uint32_t siz = mystack.size();
+    std::cout << "Size = " << siz << std::endl;
 
     return 0;
 }
