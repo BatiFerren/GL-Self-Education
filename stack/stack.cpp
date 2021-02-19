@@ -40,6 +40,12 @@ public:
 	else {std::cout << "You reached the end of the stack. Resize your stack" << std::endl;}
     }
 
+    uint32_t pop()
+    {
+	uint32_t index_of_top_element = top - 1;
+	return array[index_of_top_element];
+    }
+
     uint32_t capacity()
     {
 	return top;
@@ -93,9 +99,13 @@ int main (int argc, char *argv[])
     uint32_t siz = mystack.size();
     std::cout << "Size = " << siz << std::endl;
     mystack.resize(15);
+    mystack.push(1);
+    uint32_t new_cap = mystack.capacity();
+    std::cout << "New_Cap = " << new_cap << std::endl;
     uint32_t new_siz = mystack.size();
     std::cout << "New_Size = " << new_siz << std::endl;
     mystack.print_stack();
+    std::cout << "Top element = " << mystack.pop() << std::endl;
 
     return 0;
 }
