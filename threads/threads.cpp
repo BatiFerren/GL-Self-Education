@@ -29,7 +29,7 @@ int main (int argc, char *argv[])
     {
 	if (arg == "--help" || arg == "-h")
 	{
-	    std::cout << "This programm count and print file names in some folder. After compile run this program: type './threads.exe path/to/directory'. For example, './thread.exe ./1'" << std::endl;
+	    std::cout << "This programm count and print file names in some folder. After compile run this program: type './threads.exe path/to/directory'. For example, './threads.exe full/path/to/directory/threads/1'" << std::endl;
 	    return 0;
 	}
 	else
