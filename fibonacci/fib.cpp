@@ -30,7 +30,7 @@ int main (int argc, char *argv[])
     {
 	if (arg == "--help" || arg == "-h")
 	{
-	    std::cout << "This programm calculate sum of n elements of Fibonacci number. After programms run You have to enter how many first members of Fibonacci numbers must be summed." << std::endl;
+	    std::cout << "This programm calculate sum of n elements of Fibonacci number.\nAfter programms run You have to enter how many first members of Fibonacci numbers must be summed.\nFor enter testdata type './fib.exe < testdata.txt'.\nProgram will calculate sum of first 6 elements of Fibonacci number. Answer must be 20." << std::endl;
 	    return 0;
 	}
     }
